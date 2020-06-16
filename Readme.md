@@ -1,8 +1,11 @@
-##### **About DAWNBREAK**
+#### **About DAWNBREAK**
+
 ---
+
 Dawnbreak is a decentralized smart contract investment and wealth management platform, see [https://dbcen.github.io/dawnbreak](https://dbcen.github.io/dawnbreak)
 
-##### **Introduction**
+#### **Introduction**
+
 ---
 
 - **Spirit of Contract**
@@ -34,8 +37,10 @@ Contract
 Good luck
 3301
 
-##### **Source Code**
+#### **Source Code**
+
 ---
+
 ```solidity
 
 /**
