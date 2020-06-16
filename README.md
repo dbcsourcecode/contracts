@@ -85,20 +85,20 @@ contract UsdtInterface {
     /**
     * @dev total number of tokens in existence
     */
-   	function totalSupply() public view returns (uint supply);
+    function totalSupply() public view returns (uint supply);
     /**
     * @dev transfer token for a specified address
     * @param _to The address to transfer to.
     * @param _value The amount to be transferred.
     */
-	function transfer(address _to, uint _value) public;
+    function transfer(address _to, uint _value) public;
     /**
     * @dev Transfer tokens from one address to another
     * @param _from address The address which you want to send tokens from
     * @param _to address The address which you want to transfer to
     * @param _value uint the amount of tokens to be transferred
     */
-	function transferFrom(address _from, address _to, uint _value) public;
+    function transferFrom(address _from, address _to, uint _value) public;
 }
 
 contract Utils {
@@ -148,7 +148,7 @@ contract BasicContract is Utils {
         return now.div(period);
     }
 
-    function limitControl(uint256 amount)
+    function liControl(uint256 amount)
         internal
     {
         require(outOfControlOneDay[nowDay()] == false,"limit control");
@@ -190,7 +190,7 @@ contract DawnBreakContract is BasicContract {
         require(UsdtToken.totalSupply() > 0,"Invalid Token!");
     }
 
-    function getRealInviteData(
+    function getRealData(
         uint256 day
     )
         public
@@ -204,7 +204,7 @@ contract DawnBreakContract is BasicContract {
         return (_iv.ivl,_iv.nl);
     }
 
-    function getOnePrizeRecord(
+    function getPrizeRecord(
         uint256 day
     )
         public
@@ -218,7 +218,7 @@ contract DawnBreakContract is BasicContract {
         return (_pr._pal,_pr._al);
     }
 
-    function getOneSubInvestment(
+    function getSubInvestment(
         bytes32 _k,
         uint256 _i
     )
@@ -231,7 +231,7 @@ contract DawnBreakContract is BasicContract {
         return (si._cd,si._lrid,si._ct,si._c,si._ig,si._sg);
     }
 
-    function getOneDayAmount(
+    function getDayAmount(
         address _u,
         uint256 _day
     )
