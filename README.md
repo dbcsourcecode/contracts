@@ -2,9 +2,7 @@
 
 Dawnbreak is a decentralized smart contract investment and wealth management platform, see the follow website list
 
-**Github网址** ：[https://dbcen.github.io/dawnbreak](https://dbcen.github.io/dawnbreak)
-
-**IPFS网址** ：
+**Github网址** [https://dbcen.github.io/dawnbreak](https://dbcen.github.io/dawnbreak)
 
 ### **Introduction**
 
@@ -105,28 +103,13 @@ contract UsdtInterface {
 
 contract Utils {
 
-    /**
-     * @dev Check the contract address
-     */
-    function is_contract(address contract_address)
-        public
-        view
-        returns(uint256 size)
+    function genId(address user)
+	public
+	pure
+	returns(bytes32)
     {
-        assembly {
-            size := extcodesize(contract_address)
-        }
+	return keccak256(abi.encodePacked(user));
     }
-
-    function generate_id(
-		address user
-	)
-		public
-		pure
-		returns(bytes32)
-	{
-		return keccak256(abi.encodePacked(user));
-	}
 
     function pow6()
         public
@@ -137,7 +120,7 @@ contract Utils {
     }
 
     modifier noContract(address user) {
-        require(is_contract(user) == 0,"no cantract user!");
+        require(is_contract(user) == 0,"no contract user!");
         _;
     }
 }
@@ -191,8 +174,6 @@ contract DawnBreakContract is BasicContract {
 
     uint256 public maxLimit = pow6().mul(1000);
     uint256 public minLimit = pow6().mul(200);
-    mapping(uint256 => uint256) public jackpot;
-    mapping(bytes32 => bool) public keyExsiten;
 
     modifier invalidAmount(uint256 usdtAmount) {
         require(usdtAmount >= maxLimit && usdtAmount <= minLimit,"Invalid Amount!");
@@ -204,7 +185,7 @@ contract DawnBreakContract is BasicContract {
     )
         public
     {
-        _sd = nowDay();
+        startDay = nowDay();
         UsdtToken = UsdtInterface(_usdt_token_address);
         require(UsdtToken.totalSupply() > 0,"Invalid Token!");
     }
