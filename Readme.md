@@ -1,6 +1,6 @@
 #### **About DAWNBREAK**
 
----
+** **
 
 Dawnbreak is a decentralized smart contract investment and wealth management platform, see [https://dbcen.github.io/dawnbreak](https://dbcen.github.io/dawnbreak)
 
